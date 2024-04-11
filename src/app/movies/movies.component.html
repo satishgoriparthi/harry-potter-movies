@@ -1,0 +1,51 @@
+<div class="movie-container">
+  <div class="filters">
+    <h2>Filters</h2>
+    <div class="filter-group">
+      <span>Title:</span>
+      <input type="text" #titleFilterInput placeholder="Filter by title" (input)="applyTitleFilter(titleFilterInput.value)">
+      <span>Release Year:</span>
+      <input type="number" #releaseYearFilterInput placeholder="Filter by release year" (input)="applyReleaseYearFilter(releaseYearFilterInput.value)">
+    </div>
+  </div>
+  <br />
+  <br />
+  <table class="movie-table">
+    <tbody>
+      <ng-container *ngIf="titleFilter !== '' || releaseYearFilter !== null; else initialList">
+        <tr *ngFor="let movie of filteredMovies">
+          <td>
+            <div class="movie-info">
+              <span class="movie-title">{{ movie.title }}</span>
+              <div class="details-row">
+                <span class="movie-details">Release Date: {{ movie.release_date }}</span>
+                <span class="movie-details">Budget: ${{ movie.budget }} million</span>
+                <span class="movie-details">Duration: {{ formatDuration(movie.duration) }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="details-button" [routerLink]="['/movies', movie.id]">Details</button>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #initialList>
+        <tr *ngFor="let movie of movies">
+          <td>
+            <div class="movie-info">
+              <span class="movie-title">{{ movie.title }}</span>
+              <div class="details-row">
+                <span class="movie-details">Release Date: {{ movie.release_date }}</span>
+                <span class="movie-details">Budget: ${{ movie.budget }} million</span>
+                <span class="movie-details">Duration: {{ formatDuration(movie.duration) }}</span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <button class="details-button" [routerLink]="['/movies', movie.id]">Details</button>
+          </td>
+        </tr>
+      </ng-template>
+    </tbody>
+  </table>
+</div>

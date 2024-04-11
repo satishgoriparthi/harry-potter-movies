@@ -1,0 +1,28 @@
+<div class="movie-details-container" *ngIf="movie">
+  <div class="header-row">
+    <h2>{{ movie.title }}</h2>
+  </div>
+  <div class="center-content">
+    <img class="movie-poster" [src]="movie.poster" alt="Movie Poster">
+    <div class="description">
+      <p><strong>Summary:</strong> {{ movie.summary }}</p>
+    </div>
+    <div class="details-row">
+      <div class="details-column">
+        <p><strong>Box Office:</strong></p>
+        <p><strong>Budget:</strong></p>
+        <p><strong>Duration:</strong></p>
+        <p><strong>Producers:</strong></p>
+        <p><strong>Cinematographers:</strong></p>
+      </div>
+      <div class="details-column">
+        <p>{{ movie.box_office ? '$' + movie.box_office + ' million' : 'Unknown' }}</p>
+        <p>{{ movie.budget ? '$' + movie.budget + ' million' : 'Unknown' }}</p>
+        <p>{{ movie.duration ? formatDuration(movie.duration) : 'Unknown' }}</p>
+        <p>{{ movie.producers ? movie.producers.join(', ') : 'Unknown' }}</p>
+        <p>{{ movie.cinematographers ? movie.cinematographers.join(', ') : 'Unknown' }}</p>
+      </div>
+    </div>
+  </div>
+  <button class="back-button" (click)="goBack()">Back</button>
+</div>

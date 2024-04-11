@@ -1,0 +1,30 @@
+.movie-container {
+  margin-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-info {
+  text-align: left;
+}
+
+.movie-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.filters {
+  margin-right: 30px;
+}
+
+.movie-details {
+  font-size: 10px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.details-button {
+  vertical-align: top;
+  margin-left: 20px;
+  margin-top: 10px; 
+}
